@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ink-950 text-bone font-sans antialiased;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: rgba(224, 84, 42, 0.3);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid #e0542a;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 11px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0b0906;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #3a3122;
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #e0542a;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-[1280px] px-6 md:px-10;
+  }
+
+  /* Fluid editorial display sizes */
+  .display-hero {
+    font-size: clamp(2.75rem, 6.2vw, 5.7rem);
+    line-height: 0.98;
+    letter-spacing: -0.025em;
+  }
+  .display-section {
+    font-size: clamp(2.1rem, 4.6vw, 3.9rem);
+    line-height: 1.02;
+    letter-spacing: -0.022em;
+  }
+
+  .btn-primary {
+    @apply relative inline-flex items-center justify-center gap-2.5 rounded-full bg-orange px-7 py-3.5
+      text-[13px] font-semibold uppercase tracking-[0.08em] text-white transition-all duration-300
+      hover:-translate-y-0.5 hover:shadow-glow hover:bg-orange-deep;
+  }
+  .btn-primary svg {
+    @apply transition-transform duration-300;
+  }
+  .btn-primary:hover svg {
+    transform: translateX(4px);
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2.5 rounded-full border border-white/20 px-7 py-3.5
+      text-[13px] font-semibold uppercase tracking-[0.08em] text-bone transition-all duration-300
+      hover:border-white/70 hover:bg-white/[0.04] hover:-translate-y-0.5;
+  }
+
+  /* Text link with animated arrow */
+  .link-arrow {
+    @apply inline-flex items-center gap-2 text-[13px] font-semibold uppercase tracking-[0.1em] text-bone transition-colors hover:text-orange;
+  }
+
+  .card {
+    @apply rounded-4xl border border-white/[0.08] bg-white/[0.02];
+  }
+
+  .num-label {
+    @apply font-display text-sm text-orange;
+  }
+
+  /* Circular icon control */
+  .icon-btn {
+    @apply grid place-items-center rounded-full border border-white/15 text-bone transition-all duration-300 hover:border-orange hover:bg-orange/10;
+  }
+}
+
+@layer utilities {
+  .font-accent {
+    @apply font-display italic;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* subtle film grain */
+  .grain {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 3px 3px;
+  }
+
+  .mask-fade-x {
+    -webkit-mask-image: linear-gradient(to right, transparent, black 7%, black 93%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 7%, black 93%, transparent);
+  }
+
+  .hairline {
+    @apply border-t border-white/10;
+  }
+
+  /* Fades a portrait's edges into the page so it blends naturally */
+  .photo-fade {
+    -webkit-mask-image: radial-gradient(
+      80% 82% at 57% 38%,
+      #000 40%,
+      rgba(0, 0, 0, 0.55) 64%,
+      transparent 86%
+    );
+    mask-image: radial-gradient(
+      80% 82% at 57% 38%,
+      #000 40%,
+      rgba(0, 0, 0, 0.55) 64%,
+      transparent 86%
+    );
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+  }
+}
