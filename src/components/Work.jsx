@@ -58,6 +58,26 @@ const projects = [
     result: 'Tunnel complet',
     tags: ['Systeme.io', 'Funnel'],
   },
+  {
+    id: '07',
+    kind: 'image',
+    cat: 'Site Culturel',
+    title: 'Mémoire Lokpa · Culture Béninoise',
+    href: 'https://herbertjr.systeme.io/3b19ad72',
+    image: '/lokpa-culture.png',
+    result: 'Site complet',
+    tags: ['Systeme.io', 'Culture', 'Web Design'],
+  },
+  {
+    id: '08',
+    kind: 'image',
+    cat: 'Tunnel de Vente',
+    title: 'Tunnel · Ustensiles de Cuisine',
+    href: 'https://richjunior455-tunnel.systeme.io/877e2347',
+    image: '/tunnel-kitchen.png',
+    result: 'Tunnel e-commerce',
+    tags: ['Systeme.io', 'E-commerce', 'Funnel'],
+  },
 ]
 
 function InfoBar({ p, external }) {

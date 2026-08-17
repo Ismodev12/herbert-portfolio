@@ -238,6 +238,166 @@ export function VslCover() {
   )
 }
 
+/* Site culturel Lokpa – motifs africains, terre & or */
+export function LokpaCultureCover() {
+  return (
+    <Svg>
+      <defs>
+        <linearGradient id="lk-bg" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stopColor="#2a1a0f" />
+          <stop offset="100%" stopColor="#0d0907" />
+        </linearGradient>
+      </defs>
+      <rect width="640" height="460" fill="url(#lk-bg)" />
+      {/* decorative tribal border */}
+      <g stroke="#C17E3A" strokeWidth="1.5" opacity="0.25">
+        <line x1="40" y1="30" x2="600" y2="30" />
+        <line x1="40" y1="430" x2="600" y2="430" />
+        <line x1="40" y1="30" x2="40" y2="430" />
+        <line x1="600" y1="30" x2="600" y2="430" />
+      </g>
+      {/* corner tribal motifs */}
+      <g fill="#C17E3A" opacity="0.3">
+        <path d="M50 40 l12 0 0 12 -6 0 0 -6 -6 0 Z" />
+        <path d="M590 40 l-12 0 0 12 6 0 0 -6 6 0 Z" />
+        <path d="M50 420 l12 0 0 -12 -6 0 0 6 -6 0 Z" />
+        <path d="M590 420 l-12 0 0 -12 6 0 0 6 6 0 Z" />
+      </g>
+      {/* zigzag band */}
+      <g opacity="0.18">
+        <path d="M0 100 l30 -20 30 20 30 -20 30 20 30 -20 30 20 30 -20 30 20 30 -20 30 20 30 -20 30 20 30 -20 30 20 30 -20 30 20 30 -20 30 20 30 -20 30 20 30 -20 30 20" fill="none" stroke="#E8D5B0" strokeWidth="2" />
+        <path d="M0 370 l30 -20 30 20 30 -20 30 20 30 -20 30 20 30 -20 30 20 30 -20 30 20 30 -20 30 20 30 -20 30 20 30 -20 30 20 30 -20 30 20 30 -20 30 20 30 -20 30 20" fill="none" stroke="#E8D5B0" strokeWidth="2" />
+      </g>
+      {/* browser window */}
+      <g transform="translate(90 60)">
+        <rect x="0" y="0" width="460" height="320" rx="16" fill="#1A1209" stroke="#3a2c19" strokeWidth="1.5" />
+        <rect x="0" y="0" width="460" height="32" rx="16" fill="#241a0f" />
+        <rect x="0" y="16" width="460" height="16" fill="#241a0f" />
+        <circle cx="18" cy="16" r="4" fill="#4a3f30" />
+        <circle cx="34" cy="16" r="4" fill="#4a3f30" />
+        <circle cx="50" cy="16" r="4" fill="#4a3f30" />
+        {/* nav links */}
+        <rect x="160" y="47" width="40" height="6" rx="3" fill="#E8D5B0" opacity="0.4" />
+        <rect x="210" y="47" width="40" height="6" rx="3" fill="#E8D5B0" opacity="0.4" />
+        <rect x="260" y="47" width="40" height="6" rx="3" fill="#E8D5B0" opacity="0.4" />
+        <rect x="310" y="47" width="40" height="6" rx="3" fill="#E8D5B0" opacity="0.4" />
+        {/* CTA button */}
+        <rect x="370" y="42" width="72" height="20" rx="10" fill="#D4541A" opacity="0.8" />
+        {/* hero title */}
+        <text x="30" y="110" fontFamily="Archivo, sans-serif" fontSize="38" fontWeight="800" fill="#FFFFFF">Le Peuple</text>
+        <text x="30" y="155" fontFamily="Georgia, serif" fontSize="42" fontWeight="700" letterSpacing="-1" fill="#E8D5B0" fontStyle="italic">Lokpa</text>
+        {/* description lines */}
+        <rect x="30" y="175" width="280" height="6" rx="3" fill="#FFFFFF" opacity="0.15" />
+        <rect x="30" y="188" width="240" height="6" rx="3" fill="#FFFFFF" opacity="0.12" />
+        <rect x="30" y="201" width="170" height="6" rx="3" fill="#FFFFFF" opacity="0.09" />
+        {/* stat cards */}
+        <g transform="translate(30 226)">
+          <rect x="0" y="0" width="85" height="60" rx="8" fill="#1A1209" stroke="#3a2c19" />
+          <text x="42" y="28" fontFamily="Archivo" fontSize="18" fontWeight="800" fill="#C17E3A" textAnchor="middle">~4%</text>
+          <text x="42" y="44" fontFamily="Archivo" fontSize="8" fill="#E8D5B0" textAnchor="middle" opacity="0.6">population</text>
+        </g>
+        <g transform="translate(125 226)">
+          <rect x="0" y="0" width="85" height="60" rx="8" fill="#1A1209" stroke="#3a2c19" />
+          <text x="42" y="28" fontFamily="Archivo" fontSize="18" fontWeight="800" fill="#C17E3A" textAnchor="middle">59%</text>
+          <text x="42" y="44" fontFamily="Archivo" fontSize="8" fill="#E8D5B0" textAnchor="middle" opacity="0.6">Donga</text>
+        </g>
+        <g transform="translate(220 226)">
+          <rect x="0" y="0" width="85" height="60" rx="8" fill="#1A1209" stroke="#3a2c19" />
+          <text x="42" y="30" fontFamily="Archivo" fontSize="12" fontWeight="700" fill="#C17E3A" textAnchor="middle">Gourounsi</text>
+          <text x="42" y="44" fontFamily="Archivo" fontSize="8" fill="#E8D5B0" textAnchor="middle" opacity="0.6">langue</text>
+        </g>
+        {/* image placeholder */}
+        <rect x="330" y="80" width="110" height="200" rx="10" fill="#2a1a0f" stroke="#C17E3A" strokeWidth="1" opacity="0.4" />
+        <circle cx="385" cy="160" r="24" fill="#C17E3A" opacity="0.15" />
+        <path d="M375 155 l20 10 -20 10 z" fill="#E8D5B0" opacity="0.4" />
+      </g>
+      {/* label */}
+      <g transform="translate(90 400)">
+        <text fontFamily="Archivo, sans-serif" fontSize="11" letterSpacing="2" fill="#C17E3A" opacity="0.7">{`MÉMOIRE LOKPA — SYSTEME.IO`}</text>
+      </g>
+    </Svg>
+  )
+}
+
+/* Tunnel ustensiles de cuisine – orange vif, ustensiles */
+export function KitchenFunnelCover() {
+  return (
+    <Svg>
+      <defs>
+        <linearGradient id="kt-bg" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stopColor="#1a1410" />
+          <stop offset="100%" stopColor="#0d0a07" />
+        </linearGradient>
+        <linearGradient id="kt-accent" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stopColor="#FF6A00" />
+          <stop offset="100%" stopColor="#E05500" />
+        </linearGradient>
+      </defs>
+      <rect width="640" height="460" fill="url(#kt-bg)" />
+      {/* decorative circles */}
+      <circle cx="540" cy="80" r="120" fill="#FF6A00" opacity="0.04" />
+      <circle cx="100" cy="380" r="100" fill="#FF6A00" opacity="0.03" />
+      {/* browser window */}
+      <g transform="translate(60 40)">
+        <rect x="0" y="0" width="520" height="380" rx="16" fill="#0f0c08" stroke="#3a3122" strokeWidth="1.5" />
+        <rect x="0" y="0" width="520" height="34" rx="16" fill="#1b1610" />
+        <rect x="0" y="18" width="520" height="16" fill="#1b1610" />
+        <circle cx="18" cy="17" r="4" fill="#4a3f30" />
+        <circle cx="34" cy="17" r="4" fill="#4a3f30" />
+        <circle cx="50" cy="17" r="4" fill="#4a3f30" />
+        {/* hero section */}
+        <rect x="20" y="68" width="480" height="160" rx="12" fill="#1a1410" />
+        <text x="40" y="106" fontFamily="Archivo, sans-serif" fontSize="22" fontWeight="800" fill="#fff">Ustensiles de</text>
+        <text x="40" y="134" fontFamily="Archivo, sans-serif" fontSize="22" fontWeight="800" fill="#FF6A00">Cuisine Premium</text>
+        <rect x="40" y="148" width="180" height="6" rx="3" fill="#fff" opacity="0.12" />
+        <rect x="40" y="160" width="140" height="6" rx="3" fill="#fff" opacity="0.09" />
+        {/* CTA button */}
+        <rect x="40" y="180" width="130" height="30" rx="15" fill="url(#kt-accent)" />
+        <text x="105" y="200" fontFamily="Archivo, sans-serif" fontSize="11" fontWeight="700" fill="#fff" textAnchor="middle">COMMANDER</text>
+        {/* kitchen utensil silhouettes */}
+        <g transform="translate(330 80)" opacity="0.7">
+          <ellipse cx="60" cy="100" rx="55" ry="16" fill="#3a2c19" />
+          <ellipse cx="60" cy="96" rx="52" ry="14" fill="#2a2014" />
+          <rect x="105" y="88" width="50" height="10" rx="5" fill="#3a2c19" />
+          <rect x="20" y="30" width="8" height="60" rx="4" fill="#FF6A00" opacity="0.5" transform="rotate(-15 24 60)" />
+          <rect x="18" y="20" width="12" height="16" rx="3" fill="#FF6A00" opacity="0.5" transform="rotate(-15 24 28)" />
+          <rect x="80" y="20" width="4" height="70" rx="2" fill="#E8D5B0" opacity="0.3" transform="rotate(10 82 55)" />
+          <ellipse cx="82" cy="16" rx="8" ry="12" fill="none" stroke="#E8D5B0" strokeWidth="2" opacity="0.3" transform="rotate(10 82 16)" />
+        </g>
+        {/* product cards row */}
+        <g transform="translate(20 240)">
+          <rect x="0" y="0" width="150" height="120" rx="10" fill="#1a1410" stroke="#3a3122" />
+          <rect x="10" y="10" width="130" height="60" rx="6" fill="#2a2014" />
+          <circle cx="75" cy="40" r="16" fill="#FF6A00" opacity="0.2" />
+          <rect x="10" y="80" width="80" height="6" rx="3" fill="#fff" opacity="0.15" />
+          <rect x="10" y="92" width="50" height="6" rx="3" fill="#FF6A00" opacity="0.5" />
+          <rect x="90" y="96" width="50" height="18" rx="9" fill="#FF6A00" opacity="0.7" />
+        </g>
+        <g transform="translate(180 240)">
+          <rect x="0" y="0" width="150" height="120" rx="10" fill="#1a1410" stroke="#3a3122" />
+          <rect x="10" y="10" width="130" height="60" rx="6" fill="#2a2014" />
+          <circle cx="75" cy="40" r="16" fill="#FF6A00" opacity="0.2" />
+          <rect x="10" y="80" width="80" height="6" rx="3" fill="#fff" opacity="0.15" />
+          <rect x="10" y="92" width="50" height="6" rx="3" fill="#FF6A00" opacity="0.5" />
+          <rect x="90" y="96" width="50" height="18" rx="9" fill="#FF6A00" opacity="0.7" />
+        </g>
+        <g transform="translate(340 240)">
+          <rect x="0" y="0" width="150" height="120" rx="10" fill="#1a1410" stroke="#3a3122" />
+          <rect x="10" y="10" width="130" height="60" rx="6" fill="#2a2014" />
+          <circle cx="75" cy="40" r="16" fill="#FF6A00" opacity="0.2" />
+          <rect x="10" y="80" width="80" height="6" rx="3" fill="#fff" opacity="0.15" />
+          <rect x="10" y="92" width="50" height="6" rx="3" fill="#FF6A00" opacity="0.5" />
+          <rect x="90" y="96" width="50" height="18" rx="9" fill="#FF6A00" opacity="0.7" />
+        </g>
+      </g>
+      {/* bottom label */}
+      <g transform="translate(60 438)">
+        <text fontFamily="Archivo, sans-serif" fontSize="11" letterSpacing="2" fill="#FF6A00" opacity="0.7">{`TUNNEL DE VENTE — SYSTEME.IO`}</text>
+      </g>
+    </Svg>
+  )
+}
+
 export function ProjectCover({ type }) {
   switch (type) {
     case 'product':
@@ -252,6 +412,10 @@ export function ProjectCover({ type }) {
       return <YoutubeCover />
     case 'vsl':
       return <VslCover />
+    case 'lokpa':
+      return <LokpaCultureCover />
+    case 'kitchen':
+      return <KitchenFunnelCover />
     default:
       return <FunnelCover />
   }
