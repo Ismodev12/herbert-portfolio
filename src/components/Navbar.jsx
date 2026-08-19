@@ -48,7 +48,7 @@ export default function Navbar() {
           className={`flex items-center justify-between rounded-full px-5 py-2.5 transition-all duration-500 ${
             scrolled
               ? 'border border-white/10 bg-ink-900/80 backdrop-blur-xl'
-              : 'border border-transparent'
+              : 'border border-transparent max-lg:bg-ink-900/70 max-lg:backdrop-blur-xl max-lg:border-white/10'
           }`}
         >
           {/* logo */}
@@ -103,7 +103,7 @@ export default function Navbar() {
             open ? 'mt-2 max-h-96 opacity-100' : 'max-h-0 opacity-0'
           }`}
         >
-          <div className="card space-y-1 p-3">
+          <div className="space-y-1 rounded-4xl border border-white/[0.08] bg-ink-900/95 backdrop-blur-xl p-3">
             {[...links, { label: 'Contact', href: '#contact', id: 'contact' }].map((l) => (
               <a
                 key={l.href}
