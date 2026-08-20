@@ -1,24 +1,47 @@
-// Netlify serverless function — proxies chat requests to the xAI Grok API
+// Netlify serverless function — proxies chat requests to the Groq API
 // so the API key is never exposed on the client side.
 
-export default async (req) => {
-  if (req.method !== 'POST') {
-    return new Response(JSON.stringify({ error: 'Method not allowed' }), {
-      status: 405,
-      headers: { 'Content-Type': 'application/json' },
-    })
+const CORS_HEADERS = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Headers': 'Content-Type',
+  'Access-Control-Allow-Methods': 'POST, OPTIONS',
+}
+
+exports.handler = async (event) => {
+  // Handle CORS preflight
+  if (event.httpMethod === 'OPTIONS') {
+    return { statusCode: 204, headers: CORS_HEADERS, body: '' }
   }
 
-  const apiKey = process.env.GROK_API_KEY
+  // Only allow POST
+  if (event.httpMethod !== 'POST') {
+    return {
+      statusCode: 405,
+      headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ error: 'Method not allowed' }),
+    }
+  }
+
+  const apiKey = process.env.GROQ_API_KEY
   if (!apiKey) {
-    return new Response(JSON.stringify({ error: 'GROK_API_KEY not configured' }), {
-      status: 500,
-      headers: { 'Content-Type': 'application/json' },
-    })
+    console.error('GROQ_API_KEY environment variable is not set')
+    return {
+      statusCode: 500,
+      headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ error: 'GROQ_API_KEY not configured' }),
+    }
   }
 
   try {
-    const { messages } = await req.json()
+    const { messages } = JSON.parse(event.body)
+
+    if (!messages || !Array.isArray(messages) || messages.length === 0) {
+      return {
+        statusCode: 400,
+        headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ error: 'Messages array is required' }),
+      }
+    }
 
     const systemPrompt = {
       role: 'system',
@@ -47,7 +70,7 @@ Tarifs : Herbert préfère discuter des tarifs directement. Invite les visiteurs
         Authorization: `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
-        model: 'llama-3.3-70b-versatile',
+        model: 'qwen/qwen3.6-27b',
         messages: [systemPrompt, ...messages],
         temperature: 0.7,
         max_tokens: 300,
@@ -56,29 +79,28 @@ Tarifs : Herbert préfère discuter des tarifs directement. Invite les visiteurs
 
     if (!response.ok) {
       const err = await response.text()
-      console.error('Grok API error:', err)
-      return new Response(JSON.stringify({ error: 'Erreur API Grok' }), {
-        status: response.status,
-        headers: { 'Content-Type': 'application/json' },
-      })
+      console.error('Groq API error:', response.status, err)
+      return {
+        statusCode: 502,
+        headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ error: 'Erreur API Groq', details: response.status }),
+      }
     }
 
     const data = await response.json()
     const reply = data.choices?.[0]?.message?.content || "Désolé, je n'ai pas pu répondre."
 
-    return new Response(JSON.stringify({ reply }), {
-      status: 200,
-      headers: { 'Content-Type': 'application/json' },
-    })
+    return {
+      statusCode: 200,
+      headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ reply }),
+    }
   } catch (error) {
-    console.error('Chat function error:', error)
-    return new Response(JSON.stringify({ error: 'Erreur interne' }), {
-      status: 500,
-      headers: { 'Content-Type': 'application/json' },
-    })
+    console.error('Chat function error:', error.message || error)
+    return {
+      statusCode: 500,
+      headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ error: 'Erreur interne du serveur' }),
+    }
   }
-}
-
-export const config = {
-  path: '/api/chat',
 }

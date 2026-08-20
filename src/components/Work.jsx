@@ -32,16 +32,6 @@ const projects = [
   },
   {
     id: '04',
-    kind: 'funnel',
-    cat: 'Tunnel de Vente',
-    title: 'Tunnel · Formations PLR',
-    href: 'https://richjunior455-tunnel.systeme.io/e6d2a557',
-    cover: 'funnel2',
-    result: 'Tunnel complet',
-    tags: ['Systeme.io', 'Funnel'],
-  },
-  {
-    id: '05',
     kind: 'image',
     cat: 'Site Culturel',
     title: 'Mémoire Lokpa · Culture Béninoise',
@@ -51,7 +41,7 @@ const projects = [
     tags: ['Systeme.io', 'Culture', 'Web Design'],
   },
   {
-    id: '06',
+    id: '05',
     kind: 'image',
     cat: 'Tunnel de Vente',
     title: 'Tunnel · Ustensiles de Cuisine',
@@ -238,7 +228,7 @@ export default function Work() {
         </div>
 
         {/* secondary row */}
-        <div className="mt-5 grid grid-cols-1 gap-5 md:grid-cols-3">
+        <div className="mt-5 grid grid-cols-1 gap-5 md:grid-cols-2">
           {projects.slice(3).map((p, i) => (
             <Reveal key={p.id} delay={i * 0.08}>
               {render(p)}

@@ -9,6 +9,12 @@
 [build.environment]
   NODE_VERSION = "20"
 
+# Proxy API calls to the serverless function (must come BEFORE the SPA catch-all)
+[[redirects]]
+  from = "/api/chat"
+  to = "/.netlify/functions/chat"
+  status = 200
+
 # Single-page app fallback
 [[redirects]]
   from = "/*"
