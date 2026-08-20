@@ -88,7 +88,9 @@ Tarifs : Herbert préfère discuter des tarifs directement. Invite les visiteurs
     }
 
     const data = await response.json()
-    const reply = data.choices?.[0]?.message?.content || "Désolé, je n'ai pas pu répondre."
+    let reply = data.choices?.[0]?.message?.content || "Désolé, je n'ai pas pu répondre."
+    // Strip <think>...</think> blocks that reasoning models include
+    reply = reply.replace(/<think>[\s\S]*?<\/think>\s*/g, '').trim()
 
     return {
       statusCode: 200,
