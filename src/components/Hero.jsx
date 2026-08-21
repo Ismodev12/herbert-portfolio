@@ -9,9 +9,9 @@ const socials = [
 ]
 
 const stats = [
-  { v: '480+', l: 'Vidéos montées' },
-  { v: '72', l: 'Tunnels livrés' },
-  { v: '38M', l: 'Vues générées' },
+  { v: '100+', l: 'Vidéos montées' },
+  { v: '10+', l: 'Tunnels livrés' },
+  { v: '10M', l: 'Vues générées' },
 ]
 
 const fade = {
